@@ -1,0 +1,5 @@
+Need to change permission for files
+chmod +x <path>
+
+command to run
+cat alice.txt | python mapper.py | python reducer.py
