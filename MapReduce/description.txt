@@ -1,5 +1,11 @@
 Need to change permission for files
 chmod +x <path>
 
-command to run
-cat alice.txt | python mapper.py | python reducer.py
+command to run 
+1.) get top keywords
+cat alice.txt | python mapper.py | sort | python reducer.py | sort -nr| head  > master_key.txt
+
+2.) count keywords in chapters
+cat alice.txt | python mapper.py | python ranker.py
+
+
