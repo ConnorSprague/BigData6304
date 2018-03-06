@@ -3,9 +3,21 @@ chmod +x <path>
 
 command to run 
 1.) get top keywords
-cat alice.txt | python mapper.py | sort | python reducer.py | sort -nr| head  > master_key.txt
+cat alice.txt | python mapper.py | sort | python reducer.py | sort -nr | head > master_key.txt
 
 2.) count keywords in chapters
 cat alice.txt | python mapper.py | python ranker.py
 
+
+System Overview
+
+mapper.py reads stdin from alice.txt mapping key value pairs for each word. mapper.py ignores conjugates and filler words
+
+the output of mapper.py is then sorted alphabetically, which aligns repeating words
+
+reducer.py then counts redundant words and outputs a total for each word in the file
+
+the output of reducer.py is then sorted in descending numerical order and the top 10 results are exported to master_key.txt
+
+mapper.py is ran again and a modified reducer is used, ranker.py. ranker.py reads in the master keys and reads alice.txt inline looking for the keywords in master_key.txt, exporting tallies and whether or not keywords exist in each chapter to output.txt
 

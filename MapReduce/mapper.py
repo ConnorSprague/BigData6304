@@ -29,6 +29,8 @@ for line in sys.stdin:
         ignore = ['and', 'or', 'the', 'but', 'for', 'if',
                   'to', 'you','a','of','I','it','in',
                   'she','was','that','as','on','at',
-                  'all','so','with','had','be','is','The']
+                  'all','so','with','had','be','is','The',
+                  'not','they','them','her','him','this','that',
+                  'his','up','he','said']
         if word not in ignore:
             print('%s\t%s' % (word, 1))
